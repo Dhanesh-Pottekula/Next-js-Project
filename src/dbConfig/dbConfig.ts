@@ -1,7 +1,8 @@
+import { error } from "console";
 import mongoose from "mongoose";
 
 export default async function connection (){
-    let url=""
+    let url="mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.1"
     try{
         mongoose.connect(url)
         const connection =mongoose.connection
@@ -14,5 +15,6 @@ export default async function connection (){
     }
     catch{
         console.log("something goes wrong ")
+        error("mongoose not connected ");
     }
 }
