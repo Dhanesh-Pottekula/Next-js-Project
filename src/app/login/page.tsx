@@ -25,14 +25,13 @@ export default function userLogin(){
         try {
             setloading(true);
             const response =await axios.post("/api/users/login",user)
+            router.push("/profile")
             
         } catch (error:any) {
             console.log("error occured",error.message)
             
         }finally{
             setloading(false);
-            router.push("/profile")
-            
         }
         
     }
